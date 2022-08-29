@@ -11,6 +11,7 @@ class AdminController extends Controller
      *
      * @return void
      */
+     /*Funcion para solicitar login*/
     public function __construct()
     {
         $this->middleware('auth');

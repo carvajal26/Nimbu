@@ -23,14 +23,19 @@ Route::get('/', function () {
     return redirect()->action([HomeController::class, 'index']);
 });
 */
-
+//RUTAS PARA EL CLIENTE SIN SEGURIDAD
 Route::get('/', [App\Http\Controllers\ClienteController::class, 'index'])->name('inicio');
+Route::get('/inicio', [App\Http\Controllers\ClienteController::class, 'index'])->name('iniciov2');
+Route::get('/actividades', [App\Http\Controllers\ClienteController::class, 'actividades'])->name('actividades');
+
+
+//RUTAS PARA EL CLIENTE CON SEGURIDAD
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 Auth::routes();
 
+//Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user,index');
 
-Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
 // Route::get('/user.get_data',[UserController::class, 'get_data'])->name('get_data');
 Route::resource('users', UsersController::class);

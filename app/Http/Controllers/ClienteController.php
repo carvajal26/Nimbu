@@ -12,6 +12,7 @@ class ClienteController extends Controller
      * @return void
      */
 
+
     /**
      * Show the application dashboard.
      *
@@ -19,6 +20,11 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('Client.index');
+        return view('Client.inicio');
+    }
+
+    public function actividades()
+    {
+        return view('Client.actividades');
     }
 }

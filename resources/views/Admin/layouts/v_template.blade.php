@@ -6,7 +6,7 @@
     <!-- Google Tag Manager -->
     <!-- End Google Tag Manager -->
     <meta charset="utf-8" />
-    <title>Oryfikry | Boilerplate</title>
+    <title>Administrador</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -82,8 +82,7 @@
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
         <!--begin::Logo-->
         <a href="#">
-            {{-- <img alt="Logo" src="{{asset('metch')}}/media/logos/logo-light.png" /> --}}
-            <div class="text-white"><i class="fab fa-angrycreative fa-4x"></i></div>
+            <img alt="Logo" src="/images/logov2.png" width="50px" height="50px" alt="logo"/>
         </a>
         <!--end::Logo-->
         <!--begin::Toolbar-->
@@ -177,7 +176,7 @@
                         <!--begin::Copyright-->
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted font-weight-bold mr-2">© <?= date('Y'); ?></span>
-                            <a href="#" class="text-dark-75 text-hover-primary">Ory Fikry | BoilerPlate</a>
+                            <a href="/admin" class="text-dark-75 text-hover-primary">Administrador</a>
                         </div>
                         <!--end::Copyright-->
                     </div>

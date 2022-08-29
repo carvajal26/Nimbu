@@ -2,10 +2,10 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h2>{{$title}}</h2>
+                <h2>Tabla Usuario</h2>
                 <div class="d-flex flex-row-reverse"><button
                         class="btn btn-sm btn-pill btn-outline-primary font-weight-bolder" id="createNewUser"><i
-                            class="fas fa-plus"></i>add data </button></div>
+                            class="fas fa-plus"></i>Agregar Usuario</button></div>
             </div>
             <div class="card-body">
                 <div class="col-md-12">
@@ -48,7 +48,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title text-white" id="exampleModalLabel">Modal User</h5>
+                <h5 class="modal-title text-white" id="exampleModalLabel">Modal Usuario</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i aria-hidden="true" class="ki ki-close"></i>
                 </button>
@@ -59,19 +59,21 @@
 
                         <input type="text" name="name" class="form-control" id="name" placeholder="Nama"><br>
                         <input type="email" name="email" class="form-control" id="email" placeholder="email"><br>
-                        <select name="level" class="form-control" id="level">
-                            <option value="-">Pilih Level</option>
-                            <option value="1">Operator</option>
-                            <option value="2">Member</option>
-                        </select><br>
                         <input type="text" name="password" class="form-control" placeholder="password"><br>
+                        
+                        <select name="rol" class="form-control" id="rol">
+                            <option value="-">Rol</option>
+                            <option value="1">Usuario</option>
+                            <option value="2">Administrador</option>
+                        </select><br>
+                        <input type="file" class="form-control" name="image" id="image" value="">
                         <input type="hidden" name="user_id" id="user_id" value="">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary font-weight-bold" id="saveBtn">Save changes</button>
+                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary font-weight-bold" id="saveBtn">Guardar</button>
             </div>
         </div>
     </div>
@@ -107,13 +109,12 @@
             serverSide: true,
             ordering: false,
             dom: 'Bfrtip',
-            buttons: [
-                'copy', 'excel', 'pdf'
+            buttons: [ 'pdf'
             ],
             ajax: "{{ route('users.index') }}",
             columns: [{
                     data: 'name',
-                    name: 'name'
+                    name: 'nombre'
                 },
                 {
                     data: 'email',

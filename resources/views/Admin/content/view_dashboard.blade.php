@@ -150,7 +150,7 @@
                                     </span>
                                 </span>
                                 <div class="d-flex flex-column text-right">
-                                    <span class="text-dark-75 font-weight-bolder font-size-h3">+6,5K</span>
+                                    <span class="text-dark-75 font-weight-bolder font-size-h3">+5,5K</span>
                                     <span class="text-muted font-weight-bold mt-2">New Users</span>
                                 </div>
                             </div>

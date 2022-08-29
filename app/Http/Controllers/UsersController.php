@@ -26,7 +26,7 @@ class UsersController extends Controller
         ];
 
         if ($request->ajax()) {
-            $q_user = User::select('*')->where('level','!=', 0)->orderByDesc('created_at');
+            $q_user = User::select('*')->orderByDesc('created_at');
             return Datatables::of($q_user)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
@@ -54,7 +54,8 @@ class UsersController extends Controller
                 [
                  'name' => $request->name,
                  'email' => $request->email,
-                 'level' => $request->level,
+                 'image' => $request->image,
+                 'rol' => $request->rol,
                  'password' => Hash::make($request->password),
                 ]);        
 
