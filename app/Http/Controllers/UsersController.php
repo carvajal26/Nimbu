@@ -50,6 +50,14 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
+        if($request->image){
+            $name = time().'.' . explode('/', explode(':', substr($request->image, 0, strpos
+            ($request->image, ';')))[1])[1];
+
+           \Image::make($request->image)->save(public_path('images/usuario/').$name);
+           $request->merge(['image' => $name]);
+
+        }
         User::updateOrCreate(['id' => $request->user_id],
                 [
                  'name' => $request->name,
@@ -59,7 +67,7 @@ class UsersController extends Controller
                  'password' => Hash::make($request->password),
                 ]);        
 
-        return response()->json(['success'=>'User saved successfully!']);
+        return response()->json(['success'=>'Usuario Guardado!']);
     }
 
     public function show($id)
@@ -67,9 +75,25 @@ class UsersController extends Controller
         //
     }
 
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $User = User::find($id);
+
+        $currentPhoto = $User->photo;
+
+        if ($request->image != $currentPhoto) {
+            $name = time().'.' . explode('/', explode(':', substr($request->image, 0, strpos($request->image, ';')))[1])[1];
+
+            \Image::make($request->image)->save(public_path('images/usuario/').$name);
+            $request->merge(['image' => $name]);
+
+            $userPhoto = public_path('images/usuario/') . $currentPhoto;
+            if (file_exists($userPhoto)) {
+                @unlink($userPhoto);
+            }
+
+        }
+
         return response()->json($User);
 
     }
@@ -81,8 +105,24 @@ class UsersController extends Controller
 
     public function destroy($id)
     {
-        User::find($id)->delete();
+       
+        $user = User::FindOrFail($id);
+        if(file_exists('images/usuario/'. $user->image) AND !empty($user->image)){
+              unlink('images/usuario/'. $user->image);
+           }
+              try{
 
-        return response()->json(['success'=>'Customer deleted!']);
+                  $user->delete();
+                  $bug = 0;
+              }
+              catch(\Exception $e){
+                  $bug = $e->errorInfo[1];
+              }
+              if($bug==0){
+                  echo "success";
+              }else{
+                  echo 'error';
+              }
+
     }
 }

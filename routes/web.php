@@ -31,6 +31,7 @@ Route::get('/actividades', [App\Http\Controllers\ClienteController::class, 'acti
 
 //RUTAS PARA EL CLIENTE CON SEGURIDAD
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+Route::get('/admin/actividades', [App\Http\Controllers\API\ActividadController::class, 'index'])->name('AdminActividades');
 
 Auth::routes();
 

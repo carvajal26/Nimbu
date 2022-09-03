@@ -63,41 +63,42 @@
                             </svg>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-text">Applications</span>
+                        <span class="menu-text">Usuarios</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="menu-submenu">
         
                         <ul class="menu-subnav">
+                            @if(Auth::check() && Auth::user()->rol == "Administrador")
                             <li class="menu-item menu-item-parent" aria-haspopup="true">
                                 <span class="menu-link">
-                                    <span class="menu-text">Applications</span>
+                                    <span class="menu-text">Usuarios</span>
                                 </span>
                             </li>
+                           
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="/users" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">Users</span>
+                                    <span class="menu-text">usuarios</span>
                                     <span class="menu-label">
-                                        <span class="label label-rounded label-primary"><?= $count_user ?></span>
+                                        <span class="label label-rounded label-primary"></span>
                                     </span>
-                                    
                                 </a>
-                                
                             </li>
+                            @endif
                     
                         </ul>
                     </div>
                 </li>
             
                 <li class="menu-item" aria-haspopup="true">
-                    <a href="#" class="menu-link">
+                    <a href="/admin/actividades" class="menu-link">
                         <span class="menu-icon fas fa-cog">
                            
                         </span>
-                        <span class="menu-text">App Settings</span>
+                        <span class="menu-text">Actividades</span>
                     </a>
                 </li>	
             

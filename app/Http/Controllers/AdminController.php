@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models\Actividad;
 
 class AdminController extends Controller
 {
@@ -31,4 +32,6 @@ class AdminController extends Controller
         );
         return view('admin.layouts.v_template',$data);
     }
+
+
 }
